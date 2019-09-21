@@ -1,103 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href='https://cdn.jsdelivr.net/' rel='preconnect' crossorigin>
+<script src='https://cdn.jsdelivr.net/clappr/latest/clappr.min.js'></script>
+<script src='https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js'></script>
+<script src='https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js'></script>
 
-  <link href='https://cdn.jsdelivr.net/' rel='preconnect' crossorigin>
-  <script src='https://cdn.jsdelivr.net/clappr/latest/clappr.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js'></script>
+<script>
+  const start = channel => {
+    const playerElement = document.querySelector('#player')
+    playerElement.innerHTML = ''
 
-  <script>
-    const start = channel => {
-      const playerElement = document.querySelector('#player')
-      playerElement.innerHTML = ''
+    const targetValue = channel
 
-      const targetValue = channel
-
-      const clap = {
-        source: targetValue,
-        height: '100%',
-        width: '100%',
-        parentId: '#player',
-        plugins: [LevelSelector, ChromecastPlugin],
-        mimeType: 'application/x-mpegURL',
-        autoPlay: true,
-        playInline: true,
-        mediacontrol: { seekbar: '#eee', buttons: '#eee' },
-        chromecast: {
-          appId: '9DFB77C0',
-          contentType: 'video/m3u8',
-          media: {
-            type: ChromecastPlugin.None,
-            title: 'Live',
-            subtitle: 'Live'
-          }
+    const clap = {
+      source: targetValue,
+      height: '100%',
+      width: '100%',
+      parentId: '#player',
+      plugins: [LevelSelector, ChromecastPlugin],
+      mimeType: 'application/x-mpegURL',
+      autoPlay: true,
+      playInline: true,
+      mediacontrol: { seekbar: '#eee', buttons: '#eee' },
+      chromecast: {
+        appId: '9DFB77C0',
+        contentType: 'video/m3u8',
+        media: {
+          type: ChromecastPlugin.None,
+          title: 'Live',
+          subtitle: 'Live'
         }
       }
-
-      const player = new Clappr.Player(clap)
-      player.play()
     }
 
-    const createOption = (select) => (text, i) => {
-      const option = document.createElement('option')
-      option.innerText = `Channel ${i + 1}`
-      option.value = text
+    const player = new Clappr.Player(clap)
+    player.play()
+  }
 
-      select.addEventListener('change', e => e.target.value === option.value && start(text))
+  const createOption = (select) => (text, i) => {
+    const option = document.createElement('option')
+    option.innerText = `Channel ${i + 1}`
+    option.value = text
 
-      select.append(option)
-    }
-  </script>
+    select.addEventListener('change', e => e.target.value === option.value && start(text))
 
-  <style>
-    body,
-    select {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background: #333;
-      color: white;
-    }
+    select.append(option)
+  }
+</script>
 
-    select {
-      height: 50px;
-    }
-  </style>
-</head>
+<style>
+  body,
+  select {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #333;
+    color: white;
+  }
 
-<body>
+  select {
+    height: 50px;
+  }
+</style>
 
-  <div id="links" style="display: none;">
-    http://ak-hls-brs-espn2.espn.go.com/hls/live/218615/p/2/espn2-p.m3u8
-    http://ak-hls-brs-espnews.espn.go.com/hls/live/215388/p/news/espnews-p.m3u8
-    https://espn.f1livegp.me/f1/curl.php
-  </div>
+<div id="links" style="display: none;">
+  http://ak-hls-brs-espn2.espn.go.com/hls/live/218615/p/2/espn2-p.m3u8
+  http://ak-hls-brs-espnews.espn.go.com/hls/live/215388/p/news/espnews-p.m3u8
+  https://espn.f1livegp.me/f1/curl.php
+</div>
 
-  <select id="select">
-    <option value="null" disabled hidden selected>Choose a Channel</option>
+<select id="select">
+  <option value="null" disabled hidden selected>Choose a Channel</option>
 
-  </select>
+</select>
 
-  <div id='player'></div>
+<div id='player'></div>
 
-  <script>
-    const links = document
-      .querySelector('#links')
-      .innerHTML
-      .trim()
-      .split(/\s+/)
+<script>
+  const links = document
+    .querySelector('#links')
+    .innerHTML
+    .trim()
+    .split(/\s+/)
 
-    const $select = document.querySelector('#select')
+  const $select = document.querySelector('#select')
 
 
-    links.map(createOption($select))
-  </script>
-
-</body>
-
-</html>
+  links.map(createOption($select))
+</script>
