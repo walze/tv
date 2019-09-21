@@ -1,3 +1,0 @@
-http://ak-hls-brs-espn2.espn.go.com/hls/live/218615/p/2/espn2-p.m3u8
-http://ak-hls-brs-espnews.espn.go.com/hls/live/215388/p/news/espnews-p.m3u8
-https://espn.f1livegp.me/f1/curl.php
