@@ -38,16 +38,13 @@ const play = (source) => {
 }
 
 
-// const $selector = document.querySelector('select')
-// $selector.addEventListener('change', ({ target }) => start(target.value))
-
-
 const App = () => {
   const [channels, setChannels] = useState([])
   const [currentChannel, setCurrent] = useState(null)
 
   useEffect(() => {
-    getChannels().then(setChannels)
+    getChannels()
+      .then(setChannels)
 
     if (channels[currentChannel])
       play(channels[currentChannel])
@@ -57,8 +54,9 @@ const App = () => {
     <div>
       <select defaultValue='null' onChange={({ target }) => setCurrent(Number(target.value))}>
         <option disabled value='null'>Choose a Channel</option>
+
         {channels.map((v, i) => (
-          <option key={v} value={i}>{i}</option>
+          <option key={v} value={i}>Channel {i + 1}</option>
         ))}
       </select>
 

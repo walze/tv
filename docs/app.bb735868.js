@@ -30721,9 +30721,7 @@ var play = function play(source) {
   };
   var player = new Clappr.Player(clap);
   player.play();
-}; // const $selector = document.querySelector('select')
-// $selector.addEventListener('change', ({ target }) => start(target.value))
-
+};
 
 var App = function App() {
   var _useState = (0, _react.useState)([]),
@@ -30753,7 +30751,7 @@ var App = function App() {
     return _react.default.createElement("option", {
       key: v,
       value: i
-    }, i);
+    }, "Channel ", i + 1);
   })));
 };
 
@@ -30786,7 +30784,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60479" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60684" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
