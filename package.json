@@ -2,10 +2,10 @@
   "name": "tv",
   "version": "1.0.0",
   "description": "",
-  "main": "tv.html",
+  "main": "index.html",
   "scripts": {
-    "start": "parcel tv.html --no-cache --open",
-    "build": "parcel build tv.html --no-cache --out-dir ./docs"
+    "start": "parcel index.html --no-cache --open",
+    "build": "parcel build index.html --no-cache --out-dir ./docs"
   },
   "repository": {
     "type": "git",
