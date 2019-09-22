@@ -1,0 +1,23 @@
+{
+  "name": "tv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tv.html",
+  "scripts": {
+    "start": "parcel tv.html --no-cache --open",
+    "build": "parcel build tv.html --no-cache --out-dir ./docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walze/tv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walze/tv/issues"
+  },
+  "homepage": "https://github.com/walze/tv#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
+}
