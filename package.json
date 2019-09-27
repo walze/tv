@@ -19,5 +19,8 @@
   "homepage": "https://github.com/walze/tv#readme",
   "devDependencies": {
     "cssnano": "^4.1.10"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
   }
 }
