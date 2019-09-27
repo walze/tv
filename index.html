@@ -5,7 +5,6 @@
 <link href='https://cdn.jsdelivr.net/' rel='preconnect' crossorigin>
 <script src='https://cdn.jsdelivr.net/clappr/latest/clappr.min.js'></script>
 <script src='https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js'></script>
-<script src='https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js'></script>
 
 <script>
   const start = source => {
@@ -17,20 +16,11 @@
       height: 'calc(100vh - 50px)',
       width: '100%',
       parent,
-      plugins: [LevelSelector, ChromecastPlugin],
+      plugins: [LevelSelector],
       mimeType: 'application/x-mpegURL',
       autoPlay: true,
       playInline: true,
       mediacontrol: { seekbar: '#eee', buttons: '#eee' },
-      chromecast: {
-        appId: '9DFB77C0',
-        contentType: 'video/m3u8',
-        media: {
-          type: ChromecastPlugin.None,
-          title: 'Live',
-          subtitle: 'Live'
-        }
-      }
     }
 
     const player = new Clappr.Player(clap)
@@ -65,14 +55,14 @@
 
 <div id="links" style="display: none;">
   https://espn.f1livegp.me/f1/curl.php
-	https://d3sjmtxha86r3t.cloudfront.net/nbc/smil:espn.smil/chunklist_b2500000.m3u8
+  https://d3sjmtxha86r3t.cloudfront.net/nbc/smil:espn.smil/chunklist_b2500000.m3u8
 </div>
+
+<div id='player'></div>
 
 <select id="select">
   <option value="null" disabled hidden selected>Choose a Channel</option>
 </select>
-
-<div id='player'></div>
 
 <script>
   const links = document
