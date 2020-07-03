@@ -3,8 +3,14 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link href='https://cdn.jsdelivr.net/' rel='preconnect' crossorigin>
-<script src='https://cdn.jsdelivr.net/clappr/latest/clappr.min.js'></script>
-<script src='https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js'></script>
+
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/hlsjs-p2p-engine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/clappr-plugin.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/clappr-responsive-container-plugin@1.0.0/dist/clappr-responsive-container-plugin.min.js"></script>
+<script type="text/javascript"  src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+
 
 <script>
   const start = source => {
@@ -16,7 +22,7 @@
       height: 'calc(100vh - 50px)',
       width: '100%',
       parent,
-      plugins: [LevelSelector],
+      plugins: [CDNByeClapprPlugin, ResponsiveContainer, LevelSelector],
       mimeType: 'application/x-mpegURL',
       autoPlay: true,
       playInline: true,
@@ -51,12 +57,19 @@
   select {
     height: 50px;
   }
+
+  #player {
+    width: 100vw;
+    height: 100vh;
+  }
 </style>
 
-<div id="links" style="display: none;">
+<textarea id="links" width="100%">
   https://espn.f1livegp.me/f1/curl.php
   https://d3sjmtxha86r3t.cloudfront.net/nbc/smil:espn.smil/chunklist_b2500000.m3u8
-</div>
+  https://1da9sm33.com/hls/f1.m3u8
+  http://103.194.171.212:8081/abr/abr-S-1/playlist.m3u8
+</textarea>
 
 <div id='player'></div>
 
